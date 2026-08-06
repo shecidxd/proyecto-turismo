@@ -1,235 +1,247 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Descubre Coroico</title>
+    <meta name="description" content="Descubre Coroico, el paraíso subtropical de los Yungas en La Paz, Bolivia. Naturaleza, aventura, cascadas y la famosa Ruta de la Muerte.">
+    <title>Descubre Coroico | Turismo en los Yungas, Bolivia</title>
 
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
 
     <style>
-        html{
-            scroll-behavior:smooth;
-        }
-
-        .hero{
-            background-image:linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),
-            url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee");
-            background-size:cover;
-            background-position:center;
+        .hero-bg {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)),
+            url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1600&q=80");
+            background-size: cover;
+            background-position: center;
         }
     </style>
 </head>
 
-<body class="bg-gray-100">
+<body class="bg-gray-50 text-gray-800 antialiased font-sans">
 
-<!-- NAVBAR -->
-<nav class="fixed w-full bg-white/90 backdrop-blur shadow-md z-50">
-    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+    <!-- NAVBAR -->
+    <header class="fixed top-0 left-0 w-full bg-white/90 backdrop-blur-md shadow-sm z-50 transition-all">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            
+            <a href="#" class="text-2xl font-black tracking-tight text-green-700 flex items-center gap-2">
+                <span>🌿</span> Coroico
+            </a>
 
-        <h1 class="text-2xl font-bold text-green-700">
-            🌿 Coroico
-        </h1>
+            <!-- Navegación Desktop -->
+            <nav class="hidden md:flex space-x-8 text-sm font-semibold text-gray-700">
+                <a href="#destino" class="hover:text-green-600 transition-colors">Destino</a>
+                <a href="#atractivos" class="hover:text-green-600 transition-colors">Atractivos</a>
+                <a href="#contacto" class="hover:text-green-600 transition-colors">Reservar</a>
+            </nav>
 
-        <div class="space-x-6 hidden md:flex">
-            <a href="#destino" class="hover:text-green-700">Destino</a>
-            <a href="#atractivos" class="hover:text-green-700">Atractivos</a>
-            <a href="#contacto" class="hover:text-green-700">Reservar</a>
+            <a href="#contacto" class="hidden md:inline-block bg-green-700 hover:bg-green-800 text-white font-semibold text-sm px-5 py-2.5 rounded-full shadow-md transition-all transform hover:-translate-y-0.5">
+                Planear Viaje
+            </a>
+
+            <!-- Botón Menú Móvil -->
+            <button id="menu-btn" class="md:hidden text-gray-700 focus:outline-none p-2" aria-label="Abrir Menú">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                </svg>
+            </button>
         </div>
 
-    </div>
-</nav>
-
-
-<!-- HERO -->
-<section class="hero h-screen flex items-center justify-center text-center text-white">
-
-    <div class="max-w-3xl px-6">
-
-        <h2 class="text-6xl font-extrabold mb-6">
-            Descubre Coroico
-        </h2>
-
-        <p class="text-xl mb-8">
-            Vive una experiencia inolvidable entre montañas, cascadas,
-            naturaleza exuberante y el cálido clima de los Yungas.
-        </p>
-
-        <a href="#destino"
-           class="bg-green-600 hover:bg-green-700 transition px-8 py-4 rounded-full text-lg font-semibold shadow-lg">
-            Explorar
-        </a>
-
-    </div>
-
-</section>
-
-
-<!-- DESTINO -->
-<section id="destino" class="py-20">
-
-    <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
-
-        <img
-            src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee"
-            class="rounded-3xl shadow-xl"
-        >
-
-        <div>
-
-            <h2 class="text-4xl font-bold text-green-700 mb-6">
-                El paraíso de los Yungas
-            </h2>
-
-            <p class="text-gray-700 text-lg leading-8">
-                Coroico es uno de los destinos turísticos más visitados del
-                departamento de La Paz. Rodeado por exuberante vegetación,
-                montañas y un agradable clima subtropical, es ideal para
-                descansar, practicar deportes de aventura y disfrutar de la
-                gastronomía local. También es un excelente punto para conocer
-                cascadas, cafetales y comunidades afrobolivianas. :contentReference[oaicite:0]{index=0}
-
-            </p>
-
+        <!-- Menú Desplegable Móvil -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-gray-100 px-6 py-4 space-y-3">
+            <a href="#destino" class="block text-gray-700 font-medium hover:text-green-700">Destino</a>
+            <a href="#atractivos" class="block text-gray-700 font-medium hover:text-green-700">Atractivos</a>
+            <a href="#contacto" class="block text-gray-700 font-medium hover:text-green-700">Reservar</a>
         </div>
+    </header>
 
-    </div>
+    <main>
+        <!-- HERO SECTION -->
+        <section class="hero-bg min-h-screen flex items-center justify-center text-center text-white px-6 pt-20">
+            <div class="max-w-3xl mx-auto space-y-6">
+                <span class="bg-green-600/80 text-white text-xs md:text-sm uppercase tracking-widest font-bold px-4 py-1.5 rounded-full backdrop-blur-sm">
+                    Los Yungas • Bolivia
+                </span>
+                <h1 class="text-4xl md:text-6xl font-black tracking-tight leading-tight">
+                    Descubre la magia de Coroico
+                </h1>
+                <p class="text-lg md:text-xl text-gray-100 max-w-2xl mx-auto leading-relaxed font-light">
+                    Vive una experiencia inolvidable entre montañas majestuosas, cascadas cristalinas y el cálido clima subtropical.
+                </p>
+                <div class="pt-4 flex flex-col sm:flex-row justify-center gap-4">
+                    <a href="#destino" class="bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-full font-bold shadow-lg transition-all transform hover:-translate-y-1">
+                        Explorar Destino
+                    </a>
+                    <a href="#atractivos" class="bg-white/10 hover:bg-white/20 backdrop-blur-md text-white border border-white/30 px-8 py-4 rounded-full font-semibold transition-all">
+                        Ver Lugares
+                    </a>
+                </div>
+            </div>
+        </section>
 
-</section>
-
-
-<!-- ATRACTIVOS -->
-
-<section id="atractivos" class="bg-white py-20">
-
-    <div class="max-w-7xl mx-auto px-6">
-
-        <h2 class="text-4xl text-center font-bold mb-12">
-            Lugares Imperdibles
-        </h2>
-
-        <div class="grid md:grid-cols-3 gap-8">
-
-            <div class="bg-gray-50 rounded-2xl shadow-lg overflow-hidden hover:scale-105 transition">
-
-                <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee">
-
-                <div class="p-6">
-
-                    <h3 class="text-2xl font-bold text-green-700">
-                        🌄 Miradores
-                    </h3>
-
-                    <p class="mt-3 text-gray-600">
-                        Contempla paisajes increíbles desde los miradores naturales
-                        rodeados por la selva yungueña.
-                    </p>
-
+        <!-- SOBRE EL DESTINO -->
+        <section id="destino" class="py-24 bg-white">
+            <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 lg:gap-16 items-center">
+                <div class="relative">
+                    <img 
+                        src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1000&q=80" 
+                        alt="Paisaje verde y montañoso de Coroico" 
+                        class="rounded-3xl shadow-2xl object-cover w-full h-[400px] md:h-[480px]"
+                        loading="lazy"
+                    >
+                    <div class="absolute -bottom-6 -right-6 bg-green-700 text-white p-6 rounded-2xl shadow-xl hidden sm:block">
+                        <p class="text-3xl font-black">1,525m</p>
+                        <p class="text-xs uppercase tracking-wider text-green-200">Sobre el nivel del mar</p>
+                    </div>
                 </div>
 
-            </div>
-
-            <div class="bg-gray-50 rounded-2xl shadow-lg overflow-hidden hover:scale-105 transition">
-
-                <img src="https://images.unsplash.com/photo-1511497584788-876760111969">
-
-                <div class="p-6">
-
-                    <h3 class="text-2xl font-bold text-green-700">
-                        💦 Cascadas
-                    </h3>
-
-                    <p class="mt-3 text-gray-600">
-                        Disfruta de refrescantes cascadas y piscinas naturales
-                        rodeadas de vegetación tropical.
+                <div class="space-y-6">
+                    <span class="text-green-700 font-bold text-sm tracking-widest uppercase">El Paraíso de los Yungas</span>
+                    <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 leading-tight">
+                        Naturaleza exuberante y clima perfecto
+                    </h2>
+                    <p class="text-gray-600 text-base md:text-lg leading-relaxed">
+                        Coroico es uno de los destinos turísticos más fascinantes del departamento de La Paz. Rodeado por espesa vegetación, montañas imponentes y un agradable clima subtropical, es el refugio ideal para desconectarse de la rutina.
                     </p>
+                    <p class="text-gray-600 text-base md:text-lg leading-relaxed">
+                        Aquí podrás disfrutar de caminatas ecológicas, conocer hermosas cascadas, visitar cafetales tradicionales y sumergirte en la riqueza cultural de las comunidades afrobolivianas.
+                    </p>
+                    <div class="pt-2 flex items-center gap-6 text-gray-700 font-medium">
+                        <span class="flex items-center gap-2">☀️ 22°C Promedio</span>
+                        <span class="flex items-center gap-2">🚗 3h desde La Paz</span>
+                    </div>
+                </div>
+            </div>
+        </section>
 
+        <!-- ATRACTIVOS TURÍSTICOS -->
+        <section id="atractivos" class="py-24 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="text-center max-w-2xl mx-auto mb-16">
+                    <span class="text-green-700 font-bold text-sm tracking-widest uppercase">Qué Hacer</span>
+                    <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 mt-2">
+                        Lugares Imperdibles
+                    </h2>
+                    <p class="text-gray-600 mt-4">Descubre las mejores actividades y experiencias que Coroico tiene para ofrecerte.</p>
                 </div>
 
-            </div>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- Tarjeta 1 -->
+                    <article class="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 flex flex-col">
+                        <img 
+                            src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=800&q=80" 
+                            alt="Miradores panorámicos en Coroico" 
+                            class="w-full h-56 object-cover"
+                            loading="lazy"
+                        >
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h3 class="text-xl font-bold text-gray-900 flex items-center gap-2">
+                                🌄 Miradores Naturales
+                            </h3>
+                            <p class="mt-3 text-gray-600 text-sm leading-relaxed flex-grow">
+                                Contempla vistas panorámicas espectaculares del valle de los Yungas desde los cerros Uchumachi y San Jerónimo.
+                            </p>
+                        </div>
+                    </article>
 
-            <div class="bg-gray-50 rounded-2xl shadow-lg overflow-hidden hover:scale-105 transition">
+                    <!-- Tarjeta 2 -->
+                    <article class="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 flex flex-col">
+                        <img 
+                            src="https://images.unsplash.com/photo-1511497584788-876760111969?auto=format&fit=crop&w=800&q=80" 
+                            alt="Cascadas cristalinas en Yungas" 
+                            class="w-full h-56 object-cover"
+                            loading="lazy"
+                        >
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h3 class="text-xl font-bold text-gray-900 flex items-center gap-2">
+                                💦 Las 3 Cascadas
+                            </h3>
+                            <p class="mt-3 text-gray-600 text-sm leading-relaxed flex-grow">
+                                Realiza una caminata entre la vegetación hasta llegar a caídas de agua cristalinas ideales para un baño refrescante.
+                            </p>
+                        </div>
+                    </article>
 
-                <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb">
-
-                <div class="p-6">
-
-                    <h3 class="text-2xl font-bold text-green-700">
-                        🚵 Ruta de la Muerte
-                    </h3>
-
-                    <p class="mt-3 text-gray-600">
-                        Vive una de las experiencias más emocionantes del mundo
-                        practicando ciclismo de montaña.
-                    </p>
-
+                    <!-- Tarjeta 3 -->
+                    <article class="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 flex flex-col">
+                        <img 
+                            src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80" 
+                            alt="Ciclismo en la Ruta de la Muerte" 
+                            class="w-full h-56 object-cover"
+                            loading="lazy"
+                        >
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h3 class="text-xl font-bold text-gray-900 flex items-center gap-2">
+                                🚵 Ruta de la Muerte
+                            </h3>
+                            <p class="mt-3 text-gray-600 text-sm leading-relaxed flex-grow">
+                                Vive una dosis extrema de adrenalina descendiendo en bicicleta desde los Andes hasta la selva yungueña.
+                            </p>
+                        </div>
+                    </article>
                 </div>
+            </div>
+        </section>
 
+        <!-- SECCIÓN DE RESERVA / CONTACTO -->
+        <section id="contacto" class="bg-green-800 text-white py-20 relative overflow-hidden">
+            <div class="max-w-4xl mx-auto text-center px-6 relative z-10 space-y-6">
+                <h2 class="text-3xl md:text-5xl font-black">
+                    ¿Listo para tu próxima aventura?
+                </h2>
+                <p class="text-lg text-green-100 max-w-2xl mx-auto">
+                    Ponte en contacto con nosotros para recibir información sobre tours, hospedajes y transporte a Coroico.
+                </p>
+                
+                <form class="mt-8 max-w-lg mx-auto bg-white/10 backdrop-blur-md p-6 rounded-2xl border border-white/20 space-y-4 text-left">
+                    <div>
+                        <label class="block text-xs uppercase tracking-wider text-green-200 font-bold mb-1">Nombre</label>
+                        <input type="text" placeholder="Tu nombre completo" class="w-full px-4 py-3 rounded-lg bg-white/90 text-gray-800 focus:outline-none focus:ring-2 focus:ring-green-400 placeholder-gray-400">
+                    </div>
+                    <div>
+                        <label class="block text-xs uppercase tracking-wider text-green-200 font-bold mb-1">Correo Electrónico</label>
+                        <input type="email" placeholder="correo@ejemplo.com" class="w-full px-4 py-3 rounded-lg bg-white/90 text-gray-800 focus:outline-none focus:ring-2 focus:ring-green-400 placeholder-gray-400">
+                    </div>
+                    <button type="submit" class="w-full bg-white text-green-800 font-bold py-3.5 rounded-lg hover:bg-green-100 transition shadow-lg text-center">
+                        Solicitar Información
+                    </button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-gray-900 text-gray-400 py-12 border-t border-gray-800">
+        <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-8 items-center">
+            <div>
+                <h2 class="text-2xl font-bold text-white flex items-center gap-2">
+                    🌿 Coroico Turismo
+                </h2>
+                <p class="mt-2 text-sm text-gray-400">
+                    Promoviendo el turismo sostenible en los Yungas de Bolivia.
+                </p>
             </div>
 
+            <div class="md:text-right space-y-1 text-sm">
+                <p class="text-gray-300 font-semibold mb-2">Contacto Directo</p>
+                <p>📞 +591 70000000</p>
+                <p>✉️ info@coroico.com</p>
+            </div>
         </div>
-
-    </div>
-
-</section>
-
-
-<!-- CTA -->
-
-<section class="bg-green-700 text-white py-20">
-
-    <div class="max-w-5xl mx-auto text-center px-6">
-
-        <h2 class="text-5xl font-bold mb-6">
-            Tu próxima aventura comienza aquí
-        </h2>
-
-        <p class="text-xl mb-10">
-            Reserva hoy mismo y descubre uno de los lugares más hermosos de Bolivia.
-        </p>
-
-        <a href="#contacto"
-            class="bg-white text-green-700 font-bold px-8 py-4 rounded-full hover:bg-green-100 transition">
-            Reservar Ahora
-        </a>
-
-    </div>
-
-</section>
-
-
-<!-- FOOTER -->
-
-<footer id="contacto" class="bg-gray-900 text-gray-300 py-10">
-
-    <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between">
-
-        <div>
-
-            <h2 class="text-2xl font-bold text-white">
-                Coroico Turismo
-            </h2>
-
-            <p class="mt-3">
-                Naturaleza • Aventura • Cultura
-            </p>
-
+        <div class="max-w-6xl mx-auto px-6 mt-8 pt-6 border-t border-gray-800 text-xs text-center text-gray-500">
+            &copy; 2026 Coroico Turismo. Todos los derechos reservados.
         </div>
+    </footer>
 
-        <div class="mt-8 md:mt-0">
+    <!-- Script para menú móvil -->
+    <script>
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
 
-            <h3 class="font-bold mb-3">
-                Contacto
-            </h3>
-
-            <p>📞 +591 70000000</p>
-            <p>✉ info@coroico.com</p>
-
-        </div>
-
-    </div>
-
-</footer>
-
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
 </body>
 </html>
